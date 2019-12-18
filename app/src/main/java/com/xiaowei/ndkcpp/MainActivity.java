@@ -45,4 +45,8 @@ public class MainActivity extends AppCompatActivity {
     public void clickCPPConstRef(View view) {
         ndkCppInterface.executeCppConstRef();
     }
+
+    public void clickCPPInlineFunc(View view) {
+        ndkCppInterface.executeCppInlineFunc();
+    }
 }

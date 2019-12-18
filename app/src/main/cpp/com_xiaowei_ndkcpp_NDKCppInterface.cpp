@@ -100,13 +100,34 @@ inline void printf_inline(){
     char *address = "环普产业园";
     __android_log_print(ANDROID_LOG_INFO, "main", "内容：%s",address);
 };
+//宏定义和内联函数的区别
+//需求:求一个数的积
+//总结:这两种情况一般都不要这么写(自增自减)
+#define GET_RESULT(A) A*A
+inline int get_result(int a ){
+    return a*a;
+}
+void printf_result(){
+    int a = 2;
+    //宏函数预编译替换
+    //12  分析:int b = (++a) * (++a)
+    //第一次：a = 3  * ++a
+    //第二次: a = 4
+    //结果: 3 * 4
+//    int b = GET_RESULT(++a);
+//内联函数,和普通方法一样
+//结果 a * a 然而a=3  结果是9
+    int b =get_result(++a);
+    __android_log_print(ANDROID_LOG_INFO, "main", "结果：%d",b);
+}
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppInlineFunc(JNIEnv *env, jobject jobj){
     //编译的时候,就是进行拷贝
 //    {
 //        char *address = "环普产业园";
 //        __android_log_print(ANDROID_LOG_INFO, "main", "内容：%s",address);
 //     }
-    printf_inline();
+//    printf_inline();
+    printf_result();
 };
 }
 
