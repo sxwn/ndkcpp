@@ -67,4 +67,8 @@ public class MainActivity extends AppCompatActivity {
     public void clickCPPConstruct(View view) {
         ndkCppSecondInterface.executeCppConstruct();
     }
+
+    public void clickCPPDistruct(View view) {
+        ndkCppSecondInterface.executeCppDestrcut();
+    }
 }

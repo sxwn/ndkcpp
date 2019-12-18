@@ -14,6 +14,9 @@ public:
     Company(char* name);
     Company(int age);
     Company(char* name,int age);
+    //析构函数
+    //覆盖系统默认函数
+    ~Company();
     void setAge(int age);
     int getAge();
     void setName(char* name);

@@ -71,4 +71,11 @@
         android:text="C++中构造函数"
         android:onClick="clickCPPConstruct"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C++中析构函数"
+        android:onClick="clickCPPDistruct"
+        />
 </LinearLayout>
