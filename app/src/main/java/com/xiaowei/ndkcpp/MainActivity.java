@@ -49,4 +49,16 @@ public class MainActivity extends AppCompatActivity {
     public void clickCPPInlineFunc(View view) {
         ndkCppInterface.executeCppInlineFunc();
     }
+
+    public void clickCPPFuncParam(View view) {
+        ndkCppInterface.executeCppFuncParam();
+    }
+
+    public void clickCPPFuncPointer(View view) {
+        ndkCppInterface.executeCppFuncPointer();
+    }
+
+    public void clickCPPClass(View view) {
+        ndkCppInterface.executeCppClass();
+    }
 }

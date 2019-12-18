@@ -20,8 +20,10 @@ add_library( # Sets the name of the library.
              native-lib.cpp
              #配置编译c++文件
              com_xiaowei_ndkcpp_NDKCppInterface.cpp
+             Computer.cpp
              #配置编译c文件
              com_xiaowei_ndkcpp_NDKCInterface.c
+
         )
 
 # Searches for a specified prebuilt library and stores the path as a

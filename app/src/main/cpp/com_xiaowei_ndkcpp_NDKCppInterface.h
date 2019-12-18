@@ -16,6 +16,9 @@ JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppConst(J
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppPointer(JNIEnv *, jobject);
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppConstRef(JNIEnv *, jobject);
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppInlineFunc(JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppFuncParam(JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppFuncPointer(JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppClass(JNIEnv *, jobject);
 #ifdef __cplusplus
 }
 #endif

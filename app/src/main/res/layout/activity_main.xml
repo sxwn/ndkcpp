@@ -42,4 +42,26 @@
         android:text="C++中内联函数"
         android:onClick="clickCPPInlineFunc"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C++中函数参数"
+        android:onClick="clickCPPFuncParam"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C++中函数指针"
+        android:onClick="clickCPPFuncPointer"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C++中类的调用"
+        android:onClick="clickCPPClass"
+        />
 </LinearLayout>

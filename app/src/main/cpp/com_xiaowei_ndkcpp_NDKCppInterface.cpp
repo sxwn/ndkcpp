@@ -129,6 +129,159 @@ JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppInlineF
 //    printf_inline();
     printf_result();
 };
+
+//c++中函数参数
+//函数参数的默认值
+//void func_param(int a = 100){
+//    __android_log_print(ANDROID_LOG_INFO, "main", "result：%d",a);
+//}
+//函数重载(在java中方法重载,参数的个人,类型不同,与返回值无关)
+//函数重载需要注意不能够函数"歧义"
+//void func_param(int a){
+//    __android_log_print(ANDROID_LOG_INFO, "main", "result：%d",a);
+//}
+//void func_param(int a,int b=10){
+//    __android_log_print(ANDROID_LOG_INFO, "main", "result：a=%d,b=%d",a,b);
+//}
+//b有默认值,后面参数都得有默认值,所以c必须有默认值
+//void func_param(int a,int b=10,int c){
+//    __android_log_print(ANDROID_LOG_INFO, "main", "result：a=%d,b=%d",a,b);
+//}
+
+//c++可变参数
+//API都会提示用户传参数的类型
+void func_param(int a,...){
+    __android_log_print(ANDROID_LOG_INFO, "main", "result：%d",a);
+    //获取可变参数
+    //定义可变参数指针
+    va_list  args_p;
+    //首先要指定可变参数开始位置
+    va_start(args_p,a);
+    //一个个获取(按照顺序来)
+    //第一个参数是int类型
+    int arg_int = va_arg(args_p, int);
+    __android_log_print(ANDROID_LOG_INFO, "main", "第一个参数：%d",arg_int);
+    //第二个参数是char类型
+    char arg_char = va_arg(args_p, char);
+    __android_log_print(ANDROID_LOG_INFO, "main", "第二个参数：%c",arg_char);
+    //第三个参数是double类型
+    double arg_double= va_arg(args_p, double);
+    __android_log_print(ANDROID_LOG_INFO, "main", "第三个参数：%f",arg_double);
+    //结束
+    va_end(args_p);
+}
+//循环读取(一般情况下都是指定类型)
+//注意:必须要指定可变参数的开始位置
+void func_param_int(int a,int len,...){
+    //定义可变参数指针
+    va_list  args_p;
+    //首先要指定可变参数开始位置
+    va_start(args_p,len);
+    int i = 0;
+    int result =0;
+    for(i;i<len;i++){
+        result = va_arg(args_p,int);
+        __android_log_print(ANDROID_LOG_INFO, "main", "参数：%d",result);
+    }
+//    while (true){
+//        i = va_arg(args_p,int);
+//        __android_log_print(ANDROID_LOG_INFO, "main", "参数：%d",i);
+//        if(i == 60){
+//            //告诉程序读取完毕
+//            break;
+//        }
+//    }
+    //结束
+    va_end(args_p);
+}
+
+//函数的预留参数(提高了程序的扩展性)
+//void func_param(int a,int){
+//    __android_log_print(ANDROID_LOG_INFO, "main", "参数：%d",a);
+//}
+
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppFuncParam(JNIEnv *env, jobject jobj){
+//    func_param();
+//    func_param(10);
+//    func_param(10,20);
+    //歧义?
+//    func_param(10);
+//    func_param(10,40,'A',45.5);
+    func_param_int(10,5,20,30,40,50,60);
+//    func_param(10,20);
+};
+//函数指针
+int get_min(int a ,int b,int c,int d){
+    return a<b?a:b;
+}
+//函数指针别名
+typedef int (*GET_MIN_P)(int,int,int,int);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppFuncPointer(JNIEnv *env, jobject jobj){
+//    int (*get_min_p)(int,int) = get_min;
+//    int c = get_min_p(10,20);
+//    __android_log_print(ANDROID_LOG_INFO, "main", "最小值：%d",c);
+    GET_MIN_P p = get_min;
+    int result = p(10,20,30,40);
+    __android_log_print(ANDROID_LOG_INFO, "main", "最小值：%d",result);
+};
+
+//C++中定义个类
+//class Computer{
+//private:
+//    char *cpu;
+//    char *display;
+//    char *name;
+//    int memory;
+//    int age;
+//public:
+//    void setCPU(char* cpu){
+//        this->cpu = cpu;
+//    };
+//    char* getCPU(){
+//        return this->cpu;
+//    };
+//    void setDisplay(char* display){
+//        this->display = display;
+//    }
+//    char* getDisplay(){
+//        return this->display;
+//    };
+//    void setName(char* name){
+//        this->name = name;
+//    }
+//    char* getName(){
+//        return this->name;
+//    };
+//    void setMemory(int memory){
+//        this->memory = memory;
+//    }
+//    int getMemory(){
+//        return this->memory;
+//    };
+//    void setAge(int age){
+//        this->age = age;
+//    }
+//    int getAge(){
+//        return this->age;
+//    };
+//};
+#include "Computer.h"
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppClass(JNIEnv *env, jobject jobj){
+//    Computer computer;
+//    computer.setCPU("Intel");
+//    computer.setDisplay("Gerfoce");
+//    computer.setName("MacBook Pro 2019款");
+//    computer.setAge(6);
+//    computer.setMemory(2);
+    //也可以new
+    Computer* computer = new Computer();
+    computer->setCPU("Intel");
+    computer->setDisplay("Gerfoce");
+    computer->setName("MacBook Pro 2019款");
+    computer->setAge(6);
+    computer->setMemory(2);
+    __android_log_print(ANDROID_LOG_INFO, "main", "computer display：%s",computer->getDisplay());
+};
 }
 
 
