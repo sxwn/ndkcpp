@@ -21,6 +21,9 @@ add_library( # Sets the name of the library.
              #配置编译c++文件
              com_xiaowei_ndkcpp_NDKCppInterface.cpp
              Computer.cpp
+             model/Company.cpp
+             com_xiaowei_ndkcpp_NDKCppSecondInterface.cpp
+             com_xiaowei_ndkcpp_NDKUtils.cpp
              #配置编译c文件
              com_xiaowei_ndkcpp_NDKCInterface.c
 

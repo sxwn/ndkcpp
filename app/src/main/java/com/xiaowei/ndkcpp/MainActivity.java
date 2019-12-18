@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private NDKCppInterface ndkCppInterface;
     private NDKCInterface ndkcInterface;
+    private NDKCppSecondInterface ndkCppSecondInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ndkCppInterface = new NDKCppInterface();
         ndkcInterface = new NDKCInterface();
+        ndkCppSecondInterface = new NDKCppSecondInterface();
     }
 
     // Used to load the 'native-lib' library on application startup.
@@ -60,5 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickCPPClass(View view) {
         ndkCppInterface.executeCppClass();
+    }
+
+    public void clickCPPConstruct(View view) {
+        ndkCppSecondInterface.executeCppConstruct();
     }
 }
