@@ -73,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickCPPCopyFunc(View view) {
-        ndkCppSecondInterface.executeCppCopyFunc();
+//        ndkCppSecondInterface.executeCppCopyFunc();
+        ndkCppSecondInterface.executeCppCopyFuncScene();
+    }
+
+    public void clickCPPCopy(View view) {
+        ndkCppSecondInterface.executeCppCopy();
     }
 }

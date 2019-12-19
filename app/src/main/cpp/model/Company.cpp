@@ -32,14 +32,21 @@ Company::Company(char *name, int age) {
 }
 //重写系统拷贝函数---系统自动调用,不需要我们管理
 Company::Company(const Company &company) {
-    this->name = company.name;
+    //浅拷贝,其实就是赋值
+//    this->name = company.name;
+//    this->age = company.age;
+//    __android_log_print(ANDROID_LOG_INFO,"weip","调用-拷贝函数");
+    //深拷贝
     this->age = company.age;
+    //开辟一块内存
+    this->name = (char*)malloc(sizeof(char)*1000);
+    strcpy(this->name,company.name);
     __android_log_print(ANDROID_LOG_INFO,"weip","调用-拷贝函数");
 }
 //实现析构函数
 Company::~Company() {
     //析构函数释放内存(堆内存)
-    if(this->name){
+    if(!this->name){
         free(this->name);
     }
     __android_log_print(ANDROID_LOG_INFO,"weip","调用了析构函数");
@@ -60,3 +67,6 @@ char* Company::getName() {
     return this->name;
 }
 
+void Company::work(Company company) {
+    __android_log_print(ANDROID_LOG_INFO,"weip","%s和%s合作",this->name,company.getName());
+}

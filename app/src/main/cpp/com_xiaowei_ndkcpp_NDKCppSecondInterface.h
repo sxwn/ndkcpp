@@ -10,6 +10,8 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppConstruct(JNIEnv *, jobject);
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppDestrcut(JNIEnv *, jobject);
 JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppCopyFunc(JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppCopyFuncScene(JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppCopy(JNIEnv *, jobject);
 #ifdef __cplusplus
 }
 #endif

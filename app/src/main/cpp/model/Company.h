@@ -23,6 +23,7 @@ public:
     int getAge();
     void setName(char* name);
     char* getName();
+    void work(Company company);
 };
 
 #endif //NDKCPP_COMPANY_H

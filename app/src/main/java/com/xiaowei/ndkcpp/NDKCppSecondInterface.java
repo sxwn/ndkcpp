@@ -7,4 +7,8 @@ public class NDKCppSecondInterface {
     public native void executeCppDestrcut();
     //C++中拷贝函数、赋值运算
     public native void executeCppCopyFunc();
+    //C++中拷贝函数调用场景
+    public native void executeCppCopyFuncScene();
+    //C++中的浅拷贝和深拷贝
+    public native void executeCppCopy();
 }
