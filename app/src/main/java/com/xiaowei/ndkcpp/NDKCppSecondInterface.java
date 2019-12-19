@@ -5,4 +5,6 @@ public class NDKCppSecondInterface {
     public native void executeCppConstruct();
     //C++析构函数
     public native void executeCppDestrcut();
+    //C++中拷贝函数、赋值运算
+    public native void executeCppCopyFunc();
 }

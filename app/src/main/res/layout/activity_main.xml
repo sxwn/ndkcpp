@@ -78,4 +78,11 @@
         android:text="C++中析构函数"
         android:onClick="clickCPPDistruct"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C++中拷贝函数和赋值预算"
+        android:onClick="clickCPPCopyFunc"
+        />
 </LinearLayout>
