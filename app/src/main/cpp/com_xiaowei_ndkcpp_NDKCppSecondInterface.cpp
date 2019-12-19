@@ -38,8 +38,8 @@ JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppSecondInterface_executeCppD
     Company* company = new Company("动脑子了",100);
     //new关键字实例化和不用new实例化区别?   new实例化不调用析构函数,需要手动调用析构函数,不使用new实例化,虚拟机自动帮助我们管理
     __android_log_print(ANDROID_LOG_INFO,"weip","名称:%s,年龄:%d",company->getName(),company->getAge());
+    //注意:手动调用析构函数
     company->~Company();
-
 };
 }
 
