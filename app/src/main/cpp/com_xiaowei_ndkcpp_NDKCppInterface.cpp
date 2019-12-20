@@ -283,5 +283,3 @@ JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCppInterface_executeCppClass(J
     __android_log_print(ANDROID_LOG_INFO, "main", "computer display：%s",computer->getDisplay());
 };
 }
-
-
