@@ -35,6 +35,10 @@ public:
     FriendB(const FriendB &friendB);
     void myprint();
     void update_friendA(FriendA friendA,char* name);
+    //传递指针
+    void update_friendA_name(FriendA* friendA,char* name);
+    //传递指针引用
+    void update_friendA_p(FriendA* friendA,char* name);
 };
 
 

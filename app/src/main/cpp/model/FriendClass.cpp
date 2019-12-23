@@ -44,6 +44,12 @@ void FriendB::update_friendA(FriendA friendA,char* name){
     friendA.name = name;
     __android_log_print(ANDROID_LOG_INFO,"weip","update_friendA");
 }
+void FriendB::update_friendA_name(FriendA* friendA, char *name) {
+    friendA->name = name;
+}
+void FriendB::update_friendA_p(FriendA *friendA, char *name) {
+    friendA->name = name;
+}
 void FriendB::myprint() {
     __android_log_print(ANDROID_LOG_INFO,"weip","myprint");
 }

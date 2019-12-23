@@ -139,15 +139,35 @@ Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendFunc(JNIEnv *env, jobject jobj){
 JNIEXPORT void JNICALL
 Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendClass(JNIEnv *env, jobject thiz){
     __android_log_print(ANDROID_LOG_INFO,"weip","友元类");
+    //为什么不能够修改?
     //打印结构:A创建了2次,拷贝了1次,析构了3次  b创建了1次,析构了1次
-    FriendA friendA;
+//    FriendA friendA;
+//    friendA.setName("Dream");
+//    __android_log_print(ANDROID_LOG_INFO,"weip","修改之前的值: %s",friendA.getName());
+    //A第二次创建,是因为FriendB有一个FriendA的属性调用构造函数(因为对象属性需要初始化)
+//    FriendB friendB;
+    //拷贝对象:实参初始化形参,这个时候也会进行对象拷贝
+    //第一次析构(析构形参):因为形参在update_friendA方法中使用完毕,会立马进行析构形参对象
+//    friendB.update_friendA(friendA,"jack");
+//    __android_log_print(ANDROID_LOG_INFO,"weip","修改之后的值: %s",friendA.getName());
+    //第二次析构:析构friendA
+    //第三次析构:析构friendB中friendA属性
+    //那么怎么样才能够实现修改?
+    //解决方案:传递指针引用
+//    FriendA* friendA = new  FriendA();
+//    friendA->setName("Dream");
+//    __android_log_print(ANDROID_LOG_INFO,"weip","修改之前的值: %s",friendA->getName());
+//    FriendB friendB;
+//    friendB.update_friendA_name(friendA,"jack");
+//    __android_log_print(ANDROID_LOG_INFO,"weip","修改之后的值: %s",friendA->getName());
+    FriendA friendA =  FriendA();
     friendA.setName("Dream");
     __android_log_print(ANDROID_LOG_INFO,"weip","修改之前的值: %s",friendA.getName());
-    //A第二次创建,是因为FriendB有一个FriendA的属性调用构造函数
     FriendB friendB;
-    friendB.update_friendA(friendA,"jack");
+    friendB.update_friendA_name(&friendA,"jack");
     __android_log_print(ANDROID_LOG_INFO,"weip","修改之后的值: %s",friendA.getName());
-    //为什么不能够修改?
+
 };
+
 
 }
