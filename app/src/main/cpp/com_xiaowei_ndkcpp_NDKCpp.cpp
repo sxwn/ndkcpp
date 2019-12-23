@@ -135,9 +135,19 @@ Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendFunc(JNIEnv *env, jobject jobj){
 //A类需要访问B类中的私有属性或者函数？
 //解决方案:友元类(java反射机制的底层实现)
 //注意:A类需要声明B类是我d的友元类,之后B类可以访问A类的任何属性和方法
+#include "model/FriendClass.h"
 JNIEXPORT void JNICALL
 Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendClass(JNIEnv *env, jobject thiz){
-
+    __android_log_print(ANDROID_LOG_INFO,"weip","友元类");
+    //打印结构:A创建了2次,拷贝了1次,析构了3次  b创建了1次,析构了1次
+    FriendA friendA;
+    friendA.setName("Dream");
+    __android_log_print(ANDROID_LOG_INFO,"weip","修改之前的值: %s",friendA.getName());
+    //A第二次创建,是因为FriendB有一个FriendA的属性调用构造函数
+    FriendB friendB;
+    friendB.update_friendA(friendA,"jack");
+    __android_log_print(ANDROID_LOG_INFO,"weip","修改之后的值: %s",friendA.getName());
+    //为什么不能够修改?
 };
 
 }

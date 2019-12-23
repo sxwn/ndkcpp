@@ -16,6 +16,13 @@ private:
 
 public:
     FriendA();
+    //析构函数
+    ~FriendA();
+    //拷贝函数
+    FriendA(const FriendA &friendA);
+    void setName(char *name);
+
+    char* getName();
 };
 
 class FriendB{
@@ -23,9 +30,11 @@ private:
     FriendA friendA;
 public:
     FriendB();
-    void myprint(){
-        friendA.name
-    };
+    ~FriendB();
+    //拷贝函数
+    FriendB(const FriendB &friendB);
+    void myprint();
+    void update_friendA(FriendA friendA,char* name);
 };
 
 
