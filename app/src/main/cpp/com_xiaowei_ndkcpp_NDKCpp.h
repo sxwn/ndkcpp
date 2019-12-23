@@ -17,6 +17,22 @@ JNIEXPORT void JNICALL Java_com_xiaowei_ndkcpp_NDKCpp_callCppConstruct
 
 JNIEXPORT void JNICALL
 Java_com_xiaowei_ndkcpp_NDKCpp_callCppNewOrDelete(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_com_xiaowei_ndkcpp_NDKCpp_callCppStatic(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_com_xiaowei_ndkcpp_NDKCpp_callCppObjectSize(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_com_xiaowei_ndkcpp_NDKCpp_callCppConstFunc(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendFunc(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendClass(JNIEnv *env, jobject thiz);
+
 #ifdef __cplusplus
 }
 #endif

@@ -24,6 +24,11 @@ add_library( # Sets the name of the library.
         model/Company.cpp
         model/Teacher.cpp
         model/Student.cpp
+        model/StaticClass.cpp
+        model/ObjectSize.cpp
+        model/ConstFunc.cpp
+        model/FriendFunc.cpp
+        model/FriendClass.cpp
         com_xiaowei_ndkcpp_NDKCppSecondInterface.cpp
         com_xiaowei_ndkcpp_NDKUtils.cpp
         com_xiaowei_ndkcpp_NDKCpp.cpp

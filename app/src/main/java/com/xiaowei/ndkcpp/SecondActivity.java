@@ -28,4 +28,20 @@ public class SecondActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
+    public void callCppStatic(View view) {
+        ndkCpp.callCppStatic();
+    }
+
+    public void callCppObjectSize(View view) {
+        ndkCpp.callCppObjectSize();
+    }
+
+    public void callCppFriendFuc(View view) {
+        ndkCpp.callCppFriendFunc();
+    }
+
+    public void callCppFriendClass(View view) {
+        ndkCpp.callCppFriendClass();
+    }
 }
