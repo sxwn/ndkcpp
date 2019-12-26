@@ -166,8 +166,5 @@ Java_com_xiaowei_ndkcpp_NDKCpp_callCppFriendClass(JNIEnv *env, jobject thiz){
     FriendB friendB;
     friendB.update_friendA_name(&friendA,"jack");
     __android_log_print(ANDROID_LOG_INFO,"weip","修改之后的值: %s",friendA.getName());
-
 };
-
-
 }
